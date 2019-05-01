@@ -6,10 +6,15 @@
 #define SKETCH_NANO_MOCKUP_H
 
 
+#include "game.hpp"
+
 class Mockup {
 public :
     void setup();
     void loop();
+    Controller *c;
+    Game *g;
+
 };
 
 
