@@ -5,5 +5,5 @@ Game::Game(Controller* _c,int x,int y){
 }
 
 void Game::press(int x,int y){
-    this->c->activate(2,3);
+    this->c->activate(x,y);
 }

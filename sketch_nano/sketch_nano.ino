@@ -1,7 +1,6 @@
 //#include <cstddef>
 //#include <iostream>
 #include "game.hpp"
-#include <FastLED.h>
 #include <stdint-gcc.h>
 #include <HardwareSerial.h>
 
@@ -35,9 +34,7 @@ void setup() {
 
 void loop() {
     static Coord btn, prev_btn = {UINT8_MAX, UINT8_MAX};
-    //
-    //g.press(i, j);
-
+    //Check if a button is pressed
     btn = check_button();
     if(btn.x != prev_btn.x && btn.y != prev_btn.y) {
         if(btn.x == UINT8_MAX)
@@ -47,6 +44,7 @@ void loop() {
             Serial.print(btn.x);
             Serial.print(';');
             Serial.println(btn.y);
+            g->press(btn.x, btn.y);
         }
         prev_btn = btn;
     }
