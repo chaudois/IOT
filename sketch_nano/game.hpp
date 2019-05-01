@@ -12,9 +12,9 @@ class Game {
     vector<int> ledArray;
     vector<int> WonLED;
     vector<int> TmpLed;
+    Controller *c;
 
   private:
-    Controller *c;
     int width;
     int height;
 };

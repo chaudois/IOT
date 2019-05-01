@@ -1,6 +1,7 @@
 
 #include "game.hpp"
 #include <algorithm>
+
 //#include <random>
 //#include <chrono>
 
@@ -16,19 +17,28 @@ Game::Game(Controller* _c,int x,int y){
     while(i<x*y){
         if(i%3==0)color++;
 
-        this->ledArray[i]=color;
+        this->ledArray[i]=color-1;
         i++;
     }
 
 
-//    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    //unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 
-//    auto rng = std::default_random_engine {seed};
-//    std::shuffle(std::begin(ledArray), std::end(ledArray), rng);
+    //auto rng = std::default_random_engine {seed};
+    //std::shuffle(std::begin(ledArray), std::end(ledArray), rng);
 
 }
 
 void Game::press(int x,int y){
+    if(this->c->blink){
+      this->c->blink=false;
+      this->WonLED.clear();
+      this->TmpLed.clear();
+      for(int i=0;i<24;i++){
+          this->c->leds[i]={CRGB::Black};
+
+      }
+    }
     int ledCode=(x*this->width)+y;
 
     for(int i=0;i<this->WonLED.size();i++){//if the user click on an already won color, nothing happens
@@ -66,6 +76,10 @@ void Game::press(int x,int y){
             this->WonLED.push_back(this->TmpLed[i]);
         }
         this->TmpLed.clear();
+    }
+    if(this->WonLED.size()==this->ledArray.size()){
+      this->c->blink=true;
+      
     }
 
 }
