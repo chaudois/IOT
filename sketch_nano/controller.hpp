@@ -3,7 +3,7 @@
 
 class Controller {
   public:
-    Controller();
+    Controller(/*int pinData*/);
 
     void activateLED(int i, int i1,int color);
 

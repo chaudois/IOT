@@ -1,5 +1,3 @@
-//#include <cstddef>
-//#include <iostream>
 #include "game.hpp"
 #include <stdint-gcc.h>
 #include <HardwareSerial.h>
@@ -25,7 +23,7 @@ void setup() {
     pinMode(5, OUTPUT); digitalWrite(5, LOW);
     Serial.begin(115200);
     // put your setup code here, to run once:
-    g = new Game(new Controller(), 4, 6);
+    g = new Game(new Controller(/*6*/), 4, 6);
 }
 
 void loop() {
