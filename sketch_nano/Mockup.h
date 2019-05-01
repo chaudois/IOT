@@ -6,11 +6,11 @@
 #define SKETCH_NANO_MOCKUP_H
 
 
-
 class Mockup {
-
+public :
+    void setup();
+    void loop();
 };
-
 
 
 #endif //SKETCH_NANO_MOCKUP_H
