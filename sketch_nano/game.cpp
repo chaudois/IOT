@@ -43,11 +43,11 @@ void Game::press(int x,int y){
     }
     if(this->TmpLed.size()==0){//if this is the first click
         this->TmpLed.push_back(ledCode);
-        this->c->activateLED(x,y);
+        this->c->activateLED(x,y,this->ledArray[ledCode]);
 
     }else if(this->ledArray[this->TmpLed[0]]==this->ledArray[ledCode]){//if the clicked led is the same color as a previously clicked led
         this->TmpLed.push_back(ledCode);
-        this->c->activateLED(x,y);
+        this->c->activateLED(x,y,this->ledArray[ledCode]);
 
     }else{//if this is another color
 

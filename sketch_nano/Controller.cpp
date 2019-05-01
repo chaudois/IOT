@@ -12,9 +12,9 @@ Controller::Controller(int width, int height) {
 
 }
 
-void Controller::activateLED(int x, int y) {
+void Controller::activateLED(int x, int y,int color) {
 
-    cout<<"activating ("<<x<<","<<y<<")"<<endl;
+    cout<<"activating ("<<x<<","<<y<<") with color "<<color<<endl;
 
 }
 
