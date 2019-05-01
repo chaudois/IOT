@@ -1,4 +1,8 @@
 class Controller {
   public:
-    void activate(int x, int y);
+    Controller(int width,int height);
+
+    void activateLED(int i, int i1);
+
+    void disactivateLED(int i, int i1);
 };
