@@ -6,6 +6,7 @@
 //#include <chrono>
 
 using namespace std;
+long boot=millis();
 
 Game::Game(Controller* _c,int x,int y){
     this->c=_c;
@@ -20,12 +21,8 @@ Game::Game(Controller* _c,int x,int y){
         this->ledArray[i]=color-1;
         i++;
     }
+   
 
-
-    //unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-
-    //auto rng = std::default_random_engine {seed};
-    //std::shuffle(std::begin(ledArray), std::end(ledArray), rng);
 
 }
 
@@ -37,6 +34,23 @@ void Game::press(int x,int y){
       for(int i=0;i<24;i++){
           this->c->leds[i]={CRGB::Black};
 
+      }
+       randomSeed(millis()-boot);
+
+      long randNumber = random(25);
+  
+      
+      for (int i = 0; i < 24; i++)
+      {
+          int j = random(0, 23);
+      
+          int t = ledArray[i];
+          ledArray[i] = ledArray[j];
+          ledArray[j] = t;
+  
+      }
+      for(int i=0;i<24;i++){
+          Serial.println(ledArray[i]);
       }
     }
     int ledCode=(x*this->width)+y;

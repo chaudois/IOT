@@ -10,11 +10,14 @@ const uint8_t BTN_OUTPUT[] = {2, 3, 4, 5};
 
 
 Controller::Controller(/*int pinData*/) {
-    blink=false;
+    blink=true;
     FastLED.addLeds<WS2812B, 6, GRB>(leds, 24);
     FastLED.setBrightness(15);
-    /*for(uint8_t i=0 ; i < 24 ; i++)
-        leds[i] = CRGB::Black;*/
+    for(uint8_t i=0 ; i < 24 ; i++){
+        leds[i] = CRGB::Black;
+        ledsCopy[i]={CRGB::Black};
+    }
+      
     FastLED.show();
 }
 
