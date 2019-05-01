@@ -1,5 +1,9 @@
+#ifndef GAME_HPP
+#define GAME_HPP
+
 #include "controller.hpp"
-#include <vector>
+//#include <vector>
+#include <ArduinoSTL.h>
 using namespace std;
 class Game {
   public:
@@ -14,3 +18,5 @@ class Game {
     int width;
     int height;
 };
+
+#endif //GAME_HPP

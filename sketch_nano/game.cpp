@@ -1,8 +1,8 @@
 
 #include "game.hpp"
 #include <algorithm>
-#include <random>
-#include <chrono>
+//#include <random>
+//#include <chrono>
 
 using namespace std;
 
@@ -21,9 +21,9 @@ Game::Game(Controller* _c,int x,int y){
     }
 
 
-    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+//    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 
-    auto rng = std::default_random_engine {seed};
+//    auto rng = std::default_random_engine {seed};
 //    std::shuffle(std::begin(ledArray), std::end(ledArray), rng);
 
 }
