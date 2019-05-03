@@ -15,7 +15,7 @@ class Game {
     Controller *c;
 
     long start;
-    vector<long> bestScore;
+    long bestScore[7];
   private:
     int width;
     int height;

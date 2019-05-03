@@ -34,6 +34,9 @@ void Game::press(int x,int y){
           this->c->leds[i]={CRGB::Black};
 
       }
+      for(int i=0;i<7;i++){
+        bestScore[i]=0;
+      }
        randomSeed(millis()-boot);
 
       long randNumber = random(25);
@@ -95,8 +98,11 @@ void Game::press(int x,int y){
     }
     if(this->WonLED.size()==this->ledArray.size()){
       this->c->blink=true;
-      bestScore.push_back(millis()-this->start);
-      sort(bestScore.begin(),bestScore.end());
+      for(int i=0;i<7;i++){
+        if(bestScore[i]<millis()-start)
+          bestScore[i]=millis()-start;
+      }
+      sort(bestScore,bestScore+7);
       
     }
 
