@@ -2,8 +2,6 @@
 #include "game.hpp"
 #include <algorithm>
 
-//#include <random>
-//#include <chrono>
 
 using namespace std;
 long boot=millis();
@@ -75,6 +73,9 @@ void Game::press(int x,int y){
 
     }else{//if this is another color
 
+        //give a chance to the player to see the cliked led's color
+        this->c->activateLED(x,y,this->ledArray[ledCode]);
+        delay(500);
         for(int i=0;i<this->TmpLed.size();i++){//we deactivate all previously temporarily lit led
 
             int w=this->TmpLed[i]/this->width;
