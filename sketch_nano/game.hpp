@@ -14,6 +14,8 @@ class Game {
     vector<int> TmpLed;
     Controller *c;
 
+    long start;
+    vector<long> bestScore;
   private:
     int width;
     int height;

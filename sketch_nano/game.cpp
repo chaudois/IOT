@@ -26,6 +26,7 @@ Game::Game(Controller* _c,int x,int y){
 
 void Game::press(int x,int y){
     if(this->c->blink){
+      this->start=millis();
       this->c->blink=false;
       this->WonLED.clear();
       this->TmpLed.clear();
@@ -94,6 +95,8 @@ void Game::press(int x,int y){
     }
     if(this->WonLED.size()==this->ledArray.size()){
       this->c->blink=true;
+      bestScore.push_back(millis()-this->start);
+      sort(bestScore.begin(),bestScore.end());
       
     }
 
