@@ -1,5 +1,9 @@
+#ifndef GAME_HPP
+#define GAME_HPP
+
 #include "controller.hpp"
-#include <vector>
+//#include <vector>
+#include <ArduinoSTL.h>
 using namespace std;
 class Game {
   public:
@@ -8,9 +12,11 @@ class Game {
     vector<int> ledArray;
     vector<int> WonLED;
     vector<int> TmpLed;
+    Controller *c;
 
   private:
-    Controller *c;
     int width;
     int height;
 };
+
+#endif //GAME_HPP
