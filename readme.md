@@ -57,4 +57,4 @@ connect the card to a power source (either your computer, an extarna battery, or
 you now have a functional Memory CubeLight ! you can custom all the extarnal layout, by sloting it into a plastic cube, or anything that let the light of the led pass!
 
 If like want to go further, you can plug to your arduino to a wi-fi card and load it with the code in the web-server folder. with a little added work, you can display the result with this format, if you and the wi-fi card are on the same network : 
-[webserver](/img/webserver.png)  
+![webserver](/img/webserver.png)  
