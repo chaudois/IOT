@@ -1,6 +1,6 @@
 #ifndef CONTROLLER_HPP
 #define CONTROLLER_HPP
-#include <stdint-gcc.h>
+#include <stdint.h>
 #include <FastLED.h>
 
 typedef struct {
@@ -9,10 +9,8 @@ typedef struct {
 class Controller {
   public:
     Controller(/*int pinData*/);
-
-    void activateLED(int i, int i1,int color);
-
-    void disactivateLED(int i, int i1);
+    void activateLED(int x, int y, int color);
+    void disactivateLED(int x, int y);
     
     Coord check_button();
     bool blink;

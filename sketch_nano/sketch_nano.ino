@@ -1,22 +1,29 @@
 #include "game.hpp"
-#include <stdint-gcc.h>
+#include <stdint.h>
 #include <HardwareSerial.h>
+#include <FastLED.h>
 
+Controller *c = nullptr;
 Game *g = nullptr;
 void setup() {
-    pinMode(A0, INPUT);
-    pinMode(A1, INPUT);
-    pinMode(A2, INPUT);
-    pinMode(A3, INPUT);
-    pinMode(A4, INPUT);
-    pinMode(A5, INPUT);
-    pinMode(2, OUTPUT); digitalWrite(2, LOW);
-    pinMode(3, OUTPUT); digitalWrite(3, LOW);
-    pinMode(4, OUTPUT); digitalWrite(4, LOW);
-    pinMode(5, OUTPUT); digitalWrite(5, LOW);
+    pinMode(2, INPUT);
+    pinMode(3, INPUT);
+    pinMode(4, INPUT);
+    pinMode(5, INPUT);
+    pinMode(6, INPUT);
+    pinMode(7, INPUT);
+    pinMode(A1, OUTPUT); digitalWrite(A1, LOW);
+    pinMode(A2, OUTPUT); digitalWrite(A2, LOW);
+    pinMode(A3, OUTPUT); digitalWrite(A3, LOW);
+    pinMode(A4, OUTPUT); digitalWrite(A4, LOW);
     Serial.begin(115200);
-    // put your setup code here, to run once:
-    g = new Game(new Controller(/*6*/), 4, 6);
+    //pinMode(8, OUTPUT); //LED
+    //pinMode(LED_BUILTIN, OUTPUT);
+    while(!Serial) {
+      ; // wait for serial port to connect. Needed for native USB
+    }
+    c = new Controller(/*6*/);
+    g = new Game(c, 4, 6);
 }
 
 void loop() {
